@@ -1,0 +1,31 @@
+{
+  extends: [
+    "config:base",
+    "helpers:pinGitHubActionDigests",
+    "github>khulnasoft-lab/vul-renovate-config#1.8.0",
+    "github>khulnasoft-lab/vul-renovate-config:installer-script#1.8.0(README\\.md)",
+  ],
+  automerge: true,
+  major: {
+    automerge: false,
+  },
+  regexManagers: [
+    {
+      fileMatch: ["README.md"],
+      depNameTemplate: "khulnasoft-lab/vul-installer",
+      datasourceTemplate: "github-releases",
+      matchStrings: [
+        "vul-installer@(?<currentValue>.*)",
+      ],
+    },
+    {
+      fileMatch: ["README.md"],
+      depNameTemplate: "khulnasoft-lab/vul",
+      datasourceTemplate: "github-releases",
+      matchStrings: [
+        "vul_version: (?<currentValue>.*?)\\n",
+        "bash -s -- -v (?<currentValue>.*) -i",
+      ],
+    },
+  ],
+}
