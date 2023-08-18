@@ -1,0 +1,9 @@
+---
+# vul - Declarative CLI Version Manager
+# https://khulnasoft-lab.github.io/
+registries:
+- type: standard
+  ref: v0.12.2 # renovate: depName=khulnasoft-lab/vul-registry
+
+packages:
+- name: suzuki-shunsuke/github-comment@v4.1.0
